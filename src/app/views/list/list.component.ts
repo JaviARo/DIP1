@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EntreeService } from 'src/app/shared/services/entree.service';
+
 
 @Component({
   selector: 'app-list',
@@ -6,10 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  public entryList: any;
 
-  constructor() { }
-
+  constructor(private entreeService: EntreeService) {
+    
+  }
+   
   ngOnInit(): void {
+    this.retrieveEntry();
   }
 
+  private retrieveEntry(): void {
+    this.entreeService.retrieveEntry().subscribe(
+      (data) => {
+        this.entryList = data;
+      },
+      (error: Error) => {
+        console.log('Error: ', error);
+      },
+      () => {
+        console.log('Petición realizada correctamente');
+      }
+    );
+  }
+
+  public showTitle(title: string): void {
+    alert(`Entrada seleccionada: ${ title }.`);
+  }
+   
 }
