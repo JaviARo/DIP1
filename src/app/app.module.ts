@@ -9,6 +9,8 @@ import { EntreeComponent } from './views/list/entree/entree.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AboutUsComponent } from './views/about-us/about-us.component';
     ListComponent,
     EntreeComponent,
     PageNotFoundComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
