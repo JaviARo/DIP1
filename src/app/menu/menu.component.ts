@@ -28,6 +28,7 @@ export class MenuComponent implements OnInit {
     if (localStorage.getItem('personalToken')) {
       localStorage.removeItem('personalToken');
     }
+    window.location.reload();
   }
 
 }
